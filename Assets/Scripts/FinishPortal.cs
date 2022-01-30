@@ -6,7 +6,9 @@ using PlayerMove;
 public class FinishPortal : MonoBehaviour
 {
     float i;
-
+    [SerializeField] private GameObject c1;
+    [SerializeField] private GameObject c2;
+    
     void Start()
     {
         i = 0f;
@@ -18,6 +20,8 @@ public class FinishPortal : MonoBehaviour
             StartCoroutine(other.GetComponent<Player>().MagicEffect(true));
             MusicController.instance.passPortal.Play();
         }
+        c1.SetActive(false);
+        c2.SetActive(true);
 	}
 
     IEnumerator Pulsing() {
